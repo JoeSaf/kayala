@@ -9,9 +9,9 @@ export const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-warm">
-              <span className="font-display text-lg font-bold text-primary-foreground">FC</span>
+              <span className="font-display text-lg font-bold text-primary-foreground">KS</span>
             </div>
-            <span className="font-display text-xl font-bold text-foreground">FlavorCraft</span>
+            <span className="font-display text-xl font-bold text-foreground">Kayala Spices</span>
           </div>
 
           {/* Desktop Navigation */}
