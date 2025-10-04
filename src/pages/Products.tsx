@@ -84,46 +84,45 @@ const Products = () => {
               {products.map((product, index) => (
                 <div
                   key={product.id}
-                  className="group animate-fade-in"
+                  className="group animate-fade-in overflow-hidden rounded-3xl bg-gradient-to-b from-secondary/10 to-background p-8 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-large"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {/* Product Card */}
-                  <div className="overflow-hidden rounded-2xl bg-secondary/20 p-6 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-large">
-                    {/* Image Container */}
-                    <div className="mb-4 flex h-48 items-center justify-center rounded-xl bg-gradient-to-br from-secondary/30 to-secondary/10">
+                  {/* Product Image - Large and Centered */}
+                  <div className="mb-8 flex justify-center">
+                    <div className="relative">
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="h-32 w-32 object-contain transition-transform duration-300 group-hover:scale-110"
+                        className="h-64 w-64 object-contain transition-transform duration-300 group-hover:scale-105"
                       />
-                    </div>
-
-                    {/* Product Info */}
-                    <div className="text-center">
-                      <h3 className="mb-1 font-display text-lg font-bold uppercase tracking-wide text-foreground">
-                        {product.name}
-                      </h3>
-                      <p className="mb-4 text-sm text-muted-foreground">{product.brand}</p>
-
-                      {/* Simple illustration placeholder */}
-                      <div className="mb-4 flex justify-center">
-                        <div className="h-12 w-12 rounded-full border-2 border-foreground/20"></div>
-                      </div>
                     </div>
                   </div>
 
-                  {/* Review Card */}
-                  <div className="mt-4 rounded-xl bg-card p-4 shadow-soft">
-                    <div className="mb-2 flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-accent text-accent" />
-                      ))}
-                      <span className="ml-2 text-sm font-semibold text-foreground">{product.rating}</span>
-                    </div>
-                    <p className="mb-2 text-sm italic text-muted-foreground">"{product.review}"</p>
-                    <p className="text-xs font-medium text-foreground">
-                      {product.reviewer} <span className="text-accent">✓</span> Verified Buyer
+                  {/* Review Quote - Large and Centered */}
+                  <div className="mb-8 text-center">
+                    <p className="text-xl font-medium leading-relaxed text-foreground">
+                      "{product.review}"
                     </p>
+                  </div>
+
+                  {/* Bottom Section - Customer Info and Rating */}
+                  <div className="flex items-center justify-between border-t border-border/50 pt-6">
+                    {/* Left: Customer Name and Verified Badge */}
+                    <div className="flex items-center gap-2">
+                      <p className="text-base font-semibold text-foreground">{product.reviewer}</p>
+                      <div className="flex items-center gap-1">
+                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-foreground">
+                          <span className="text-xs font-bold text-background">✓</span>
+                        </div>
+                        <span className="text-sm text-muted-foreground">Verified customer</span>
+                      </div>
+                    </div>
+
+                    {/* Right: Star Rating */}
+                    <div className="flex items-center gap-2">
+                      <Star className="h-8 w-8 fill-accent text-accent" />
+                      <span className="text-2xl font-bold text-foreground">{product.rating}/5</span>
+                    </div>
                   </div>
                 </div>
               ))}
